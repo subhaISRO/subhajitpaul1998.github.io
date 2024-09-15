@@ -3,32 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Your Name - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            max-width: 900px;
+            line-height: 1.6;
+        }
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        .links a {
+            margin-right: 15px;
+        }
+        .updates, .reviewer {
+            margin-top: 30px;
+        }
+        .updates ul, .reviewer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .updates ul li, .reviewer ul li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="profile.jpg" alt="Your Name">
-        <h1>Your Name</h1>
-        <p>I am a [position] at [your institution]. My research interests are ...</p>
-        <div>
-            <a href="https://linkedin.com/yourprofile">LinkedIn</a> |
-            <a href="https://github.com/yourprofile">GitHub</a> |
-            <a href="https://scholar.google.com/citations?user=yourprofile">Google Scholar</a>
-            <!-- Add more links as needed -->
-        </div>
-    </header>
-    <section id="updates">
+    <h1>Your Name</h1>
+    <img src="your-image.jpg" alt="Your Image">
+    <p>
+        I am a [position] at [your organization]. My research focuses on [brief description of your research].
+        Currently, I am working on [your work].
+    </p>
+
+    <div class="links">
+        <a href="https://scholar.google.com">Google Scholar</a>
+        <a href="https://dblp.org">DBLP</a>
+        <a href="https://linkedin.com">LinkedIn</a>
+        <a href="https://github.com">GitHub</a>
+    </div>
+
+    <div class="updates">
         <h2>Updates</h2>
         <ul>
-            <li>Sep 2024: Hugging Face Demo: <a href="#">RB-Modulation</a></li>
-            <li>May 2024: Preprint: <a href="#">RB-Modulation: Training-Free Personalization</a></li>
-            <!-- Add more updates -->
+            <li>Sep 2024: Hugging Face Demo: <a href="#">RB-Modulation for Stylization and Content-Style Composition!</a></li>
+            <li>May 2024: Preprint: <a href="#">RB-Modulation: Training-Free Personalization of Diffusion Models!</a></li>
+            <li>Feb 2024: One paper <a href="#">Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion</a></li>
         </ul>
-    </section>
-    <section id="reviewer">
+    </div>
+
+    <div class="reviewer">
         <h2>Reviewer</h2>
-        <p>NeurIPS (2022, 2023, 2024), CVPR, ICLR...</p>
-    </section>
+        <ul>
+            <li>NeurIPS (2022, 2023, 2024)</li>
+            <li>ICLR (2022, 2023, 2024)</li>
+        </ul>
+    </div>
 </body>
 </html>
