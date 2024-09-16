@@ -62,6 +62,17 @@
         ul li a:hover {
             text-decoration: underline;
         }
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .about-section img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
         footer {
             background-color: #007bff;
             color: white;
@@ -87,18 +98,21 @@
         <a href="#reviewer">Reviewer</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         
-        <!-- About Section -->
-        <div id="about" class="section">
-            <h2>About</h2>
-            <p>
-                I am a [position] at [your organization]. My research focuses on [brief description of your research].
-                Currently, I am working on [your work].
-            </p>
+        <!-- About Section with Image -->
+        <div id="about" class="section about-section">
+            <div class="about-text">
+                <h2>About</h2>
+                <p>
+                    I am a [position] at [your organization]. My research focuses on [brief description of your research].
+                    Currently, I am working on [your work]. I have a deep interest in [your interests], and I’ve contributed to 
+                    several important projects in the field of [field].
+                </p>
+            </div>
+            <img src="my_photo.jpg" alt="Your Photo">
         </div>
 
         <!-- Updates Section -->
@@ -141,21 +155,11 @@
             </ul>
         </div>
 
-        <!-- Contact Section -->
-        <div id="contact" class="section">
-            <h2>Contact</h2>
-            <p>
-                You can reach me at: <br>
-                Email: <a href="mailto:your-email@example.com">your-email@example.com</a> <br>
-                LinkedIn: <a href="https://linkedin.com">Your LinkedIn Profile</a> <br>
-                GitHub: <a href="https://github.com">Your GitHub Profile</a>
-            </p>
-        </div>
-
     </div>
 
+    <!-- Footer with Contact Info -->
     <footer>
-        <p>Contact Info: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p>Contact Info: <a href="mailto:your-email@example.com">your-email@example.com</a> | LinkedIn: <a href="https://linkedin.com">Your LinkedIn Profile</a> | GitHub: <a href="https://github.com">Your GitHub Profile</a></p>
     </footer>
 
 </body>
