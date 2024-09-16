@@ -138,6 +138,9 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+        #moreBtn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -280,6 +283,28 @@
     <footer>
         <p>Contact Info: <a href="mailto:your-email@example.com">your-email@example.com</a> | LinkedIn: <a href="https://linkedin.com">Your LinkedIn Profile</a> | GitHub: <a href="https://github.com">Your GitHub Profile</a></p>
     </footer>
+
+    <script>
+        function showMore() {
+            var moreUpdates = document.getElementById("more-updates");
+            var moreBtn = document.getElementById("moreBtn");
+
+            // Toggle the display property
+            if (moreUpdates.style.display === "none" || moreUpdates.style.display === "") {
+                moreUpdates.style.display = "block";  // Show the hidden updates
+                moreBtn.innerHTML = "Show Less";      // Change button text
+            } else {
+                moreUpdates.style.display = "none";   // Hide the updates again
+                moreBtn.innerHTML = "Show More";      // Change button text back
+            }
+        }
+
+        // Ensure the "more-updates" section is hidden on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            var moreUpdates = document.getElementById("more-updates");
+            moreUpdates.style.display = "none";
+        });
+    </script>
 
 </body>
 </html>
