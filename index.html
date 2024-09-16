@@ -35,7 +35,9 @@
             background-color: #575757;
         }
         .container {
-            padding: 20px;
+            padding: 20px 60px; /* Adding padding to the left and right for spacing */
+            max-width: 1200px;
+            margin: auto; /* Center the content */
         }
         .section {
             margin: 40px 0;
@@ -82,6 +84,48 @@
             bottom: 0;
             width: 100%;
         }
+        /* Style for publications */
+        .publication {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .publication img {
+            width: 120px; /* Rectangular image */
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .publication .pub-info {
+            max-width: 1000px;
+        }
+        .pub-title {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .pub-meta {
+            margin-bottom: 10px;
+        }
+        .pub-meta span {
+            background-color: yellow;
+            padding: 2px 5px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: red;
+        }
+        .pub-links a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -115,44 +159,58 @@
             <img src="my_photo.jpg" alt="Your Photo">
         </div>
 
-        <!-- Updates Section -->
-        <div id="updates" class="section">
-            <h2>Updates</h2>
-            <ul>
-                <li>Sep 2024: Hugging Face Demo: <a href="#">RB-Modulation for Stylization and Content-Style Composition!</a></li>
-                <li>May 2024: Preprint: <a href="#">RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control!</a></li>
-                <li>Feb 2024: One paper <a href="#">Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion</a></li>
-            </ul>
-        </div>
-
-        <!-- Reviewer Section -->
-        <div id="reviewer" class="section">
-            <h2>Reviewer</h2>
-            <ul>
-                <li>NeurIPS (2022, 2023, 2024)</li>
-                <li>ICLR (2022, 2023, 2024)</li>
-                <li>CVPR (2024)</li>
-            </ul>
-        </div>
-
-        <!-- Projects Section -->
-        <div id="projects" class="section">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Project 1:</strong> <a href="#">Title and Description of the Project</a></li>
-                <li><strong>Project 2:</strong> <a href="#">Title and Description of the Project</a></li>
-                <li><strong>Project 3:</strong> <a href="#">Title and Description of the Project</a></li>
-            </ul>
-        </div>
-
         <!-- Publications Section -->
         <div id="publications" class="section">
             <h2>Publications</h2>
-            <ul>
-                <li><strong>Publication 1:</strong> <a href="#">Title and Link to Paper</a> - Journal/Conference Name</li>
-                <li><strong>Publication 2:</strong> <a href="#">Title and Link to Paper</a> - Journal/Conference Name</li>
-                <li><strong>Publication 3:</strong> <a href="#">Title and Link to Paper</a> - Journal/Conference Name</li>
-            </ul>
+
+            <!-- Example Publication 1 -->
+            <div class="publication">
+                <img src="your-publication-image1.jpg" alt="Publication Image">
+                <div class="pub-info">
+                    <p class="pub-title">
+                        RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control
+                    </p>
+                    <p class="pub-meta">
+                        <span>NEW</span> Litu Rout, Yujia Chen, Nathaniel Ruiz, Abhishek Kumar, Constantine Caramanis, Sanjay Shakkottai
+                    </p>
+                    <p>
+                        We introduce Reference-Based Modulation (RB-Modulation), a training-free plug-and-play solution for content and style personalization. 
+                        By incorporating style features into the controller's terminal cost, we modulate the drift field in diffusion models' reverse dynamics, enabling training-free personalization.
+                    </p>
+                    <div class="pub-links">
+                        <a href="#">Project Page</a>
+                        <a href="#">PDF</a>
+                        <a href="#">ArXiv</a>
+                        <a href="#">Code</a>
+                        <a href="#">Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Publication 2 -->
+            <div class="publication">
+                <img src="your-publication-image2.jpg" alt="Publication Image">
+                <div class="pub-info">
+                    <p class="pub-title">
+                        Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion
+                    </p>
+                    <p class="pub-meta">
+                        <span>NEW</span> Litu Rout, Yujia Chen, Abhishek Kumar, Constantine Caramanis, Sanjay Shakkottai
+                    </p>
+                    <p>
+                        We present an efficient second-order approximation using Tweedie’s formula to mitigate the bias incurred in widely used first-order samplers. With this method, we devise a surrogate loss function for every diffusion step to address inverse problems.
+                    </p>
+                    <div class="pub-links">
+                        <a href="#">Project Page</a>
+                        <a href="#">PDF</a>
+                        <a href="#">ArXiv</a>
+                        <a href="#">Code</a>
+                        <a href="#">Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more publications as needed -->
         </div>
 
     </div>
