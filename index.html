@@ -70,9 +70,10 @@
             justify-content: space-between;
         }
         .about-section img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 50%;
+            width: 150px; /* Set the width for square or rectangular shape */
+            height: 150px; /* For square, keep width and height the same */
+            /* height: 200px; For rectangular, use a different height */
+            object-fit: cover; /* Ensures the image fills the box without distortion */
             margin-left: 20px;
         }
         footer {
