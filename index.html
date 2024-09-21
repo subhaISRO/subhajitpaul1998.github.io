@@ -114,8 +114,9 @@
             padding-bottom: 20px;
         }
         .publication img {
-            width: 120px; /* Rectangular image */
-            height: 90px;
+            width: auto; /* Rectangular image */
+            max-width: 120px;
+            height: auto;
             object-fit: cover;
             border-radius: 8px;
             margin-right: 20px;
@@ -250,7 +251,7 @@
                         F2former: When Fractional Fourier Meets Deep Wiener Deconvolution and Selective Frequency Transformer for Image Deblurring
                     </p>
                     <p class="pub-meta">
-                        <span>NEW</span> Subhajit Paul, Sahil Kumawat, Ashutosh Gupta, Deepak Mishra
+                        <span>NEW</span> <strong>Subhajit Paul</strong>, Sahil Kumawat, Ashutosh Gupta, Deepak Mishra
                     </p>
                     <p>
                         We introduce a novel image deblurring based on the Fractional Fourier Transform (FRFT), a spatial-frequency representation, making it ideal for processing non-stationary signals like images. Here, we present a Fractional Fourier Transformer (F2former), by combining the fractional Fourier based fwature Wiener deconvolution and a multi-branch encoder-decoder transformer based on a new fractional frequency aware transformer block. We design it using a fractional frequency aware self-attention (F2SA) to estimate element-wise product attention based on important frequency components and a novel feed-forward network based on frequency division multiplexing to refine high and low frequency features separately for efficient latent clear image restoration. Experimental results for the cases of both motion and defocus deblurring show that the performance of our proposed method is superior to other SOTA approaches.
@@ -273,7 +274,7 @@
                         A Sinkhorn Regularized Adversarial Network for Image Guided DEM Super-resolution using Frequency Selective Hybrid Graph Transformer
                     </p>
                     <p class="pub-meta">
-                        <span>NEW</span> Subhajit Paul, Ashutosh Gupta
+                        <span>NEW</span> <strong>Subhajit Paul</strong>, Ashutosh Gupta
                     </p>
                     <p>
                         We propose a novel hybrid transformer model for generating high-resolution DEMs using multi-spectral satellite imagery as guide. The model combines Densely connected Multi-Residual Blocks (DMRB) with multi-headed Frequency Selective Graph Attention (M-FSGA), using discriminator spatial maps as attention to the guide. We introduce an adversarial objective based on Sinkhorn distance to improve performance of GANs, addressing vanishing gradients and numerical convergence. Experiments across four DEM datasets demonstrate that our model outperforms baselines with sharper details and minimal errors.
@@ -296,7 +297,7 @@
                         C-LiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation
                     </p>
                     <p class="pub-meta">
-                        <span>NEW</span> Subhajit Paul, Ashutosh Gupta, S. Manthira Moorthi, Debajyoti Dhar
+                        <span>NEW</span> <strong>Subhajit Paul</strong>, Ashutosh Gupta, S. Manthira Moorthi, Debajyoti Dhar
                     </p>
                     <p>
                         We introduce a hybrid transformer architecture for precise cloud mask generation. The model employs dual orthogonal self-attention (DOSA) and hierarchical cross-channel attention (HC2A) to enhance cloud-specific feature detection. To ensure stability, we theoretically validate these mechanisms with Lipschitz stability analysis with empirical validation against FGSM and PGD-20 attack. We also employ adversarial training with Lovász-Softmax loss. Experiments on satellite datasets, including Landsat-8 and Sentinel-2, show that C-LiSA outperforms state-of-the-art methods, with improved generalization and superior results.
@@ -310,6 +311,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Example Publication4 -->
+            <div class="publication">
+                <img src="igarss.png" alt="Publication Image">
+                <div class="pub-info">
+                    <p class="pub-title">
+                        C-LiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation
+                    </p>
+                    <p class="pub-meta">
+                        <span>NEW</span> Ashutosh Gupta, <strong>Subhajit Paul</strong>, Arghya Bhattacharya, Prachi Jain
+                    </p>
+                    <p>
+                        we propose a framework to address this problem by utilizing a Generative Adversarial Network along with conventional degradation estimation techniques to generate a paired dataset for deep learning. The paired dataset is generated from a set of images with desirable characteristics and hence acts as a surrogate for the actual clean data. We perform experiments to demonstrate that our strategy is able to employ recent deep learning models for standard datasets to achieve impressive restoration results on satellite images for which no paired datasets are available. Visual as well as quantitative results using 30 cm Worldview-3 and Cartosat-3 images show that our strategy is a simple, yet effective way of generating a realistic dataset for utilizing deep-learning solutions for satellite image restoration. 
+                    </p>
+                    <div class="pub-links">
+                        <!-- <a href="#">Project Page</a> -->
+                        <!-- <a href="https://arxiv.org/pdf/2311.17475" target="_blank">ArXiv</a> -->
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10640440" target="_blank">Paper</a>
+                        <!-- <a href="#">Code</a> -->
+                        <!-- <a href="#">Demo</a> -->
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Add more publications as needed -->
         </div>
