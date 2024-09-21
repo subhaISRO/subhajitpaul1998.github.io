@@ -70,6 +70,11 @@
             align-items: center;
             justify-content: space-between;
         }
+        .about-image-and-links {
+            display: flex;
+            flex-direction: column; /* Stack image and links vertically */
+            align-items: center; /* Center them horizontally */
+        }
         .about-section img {
             width: 150px; /* Set the width for square or rectangular shape */
             height: 150px; /* For square, keep width and height the same */
@@ -180,19 +185,22 @@
                 <h2>About</h2>
                 <p>
                     I am a working as a Scientist/Engineer-SC at the <a href="https://www.sac.gov.in/Vyom/" target="_blank">Space Applications Centre (SAC)</a>, <a href="https://www.isro.gov.in" target="_blank">Indian Space Research Organisation (ISRO)</a>.
-                    Here, my major focus lies in developing advanced image processing and computer vision solutions to enhance radiometric quality of high-resolution satellite imagery.
-                    Apart from that, I also indulge myself in designing operational deep learning solutions for image inverse problems and segmentation domain. My research also focuses theoretically analyzying model stability, robustness and convergence properties.
-                    I have a deep interest in investigating traditional image processing and optimization techniques to develop reliable cutting edge deep  learning solutions.
+                    My work focuses on developing advanced image processing and computer vision solutions to enhance radiometric quality of high-resolution satellite imagery.
+                    In addition, I am engaged in designing operational deep learning solutions for image inverse problems and segmentation domain. My research interests also include theoretically analysis of model stability, robustness and convergence properties.
+                    I have a deep interest in investigating traditional image processing and optimization techniques to develop reliable cutting edge deep learning solutions for image inverse problems.
                 </p>
                 <p>
                     I received my B.Tech from Indian Institute of Space Science and Technology (<a href="https://www.iist.ac.in" target="_blank">IIST</a>). I was fornuate to get the opprtunity to work at Virtual Reality (VR) lab under the supervision of  <a href="https://www.iist.ac.in/avionics/deepak.mishra" target="_blank">Prof. Deepak Mishra</a> during my undergrad research. 
                 </p>
             </div>
-            <img src="my_photo.jpg" alt="Your Photo">
-            <div class="about-links">
-                <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">CV</a> /
-                <a href="https://scholar.google.com/citations?user=RWatMrcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            </div>
+             <!-- Image and Links Below the Image -->
+            <div class="about-image-and-links">
+                <img src="my_photo.jpg" alt="Your Photo">
+                <div class="about-links">
+                    <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">CV</a> /
+                    <a href="https://scholar.google.com/citations?user=RWatMrcAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                </div>
+            <div>
         </div>
 
         <!-- Updates Section -->
