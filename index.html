@@ -71,14 +71,16 @@
             justify-content: space-between;
         }
         .about-section img {
-            width: 150px; /* Set the width for square or rectangular shape */
-            height: 150px; /* For square, keep width and height the same */
+            width: 180px; /* Set the width for square or rectangular shape */
+            height: 200px; /* For square, keep width and height the same */
             /* height: 200px; For rectangular, use a different height */
             object-fit: cover; /* Ensures the image fills the box without distortion */
             margin-left: 20px;
+            border-radius: 8px;
         }
         .about-links {
             margin-top: 10px;
+            text-align: right;
         }
         .about-links a {
             text-decoration: none;
@@ -208,22 +210,17 @@
             <h2>Updates</h2>
             <ul id="latest-updates">
                 <!-- Latest 5 updates visible -->
-                <li>Sep 2024: Hugging Face Demo: <a href="#">RB-Modulation for Stylization and Content-Style Composition!</a></li>
-                <li>May 2024: Preprint: <a href="#">RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control!</a></li>
-                <li>Feb 2024: One paper <a href="#">Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion</a></li>
-                <li>Nov 2023: Preprint: <a href="#">Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion</a></li>
-                <li>Sep 2023: One paper <a href="#">Solving Linear Inverse Problems Provably using PSLD</a></li>
+                <li>Sep 2024: Preprint: <a href="https://arxiv.org/abs/2409.02056" target="_blank">F2former: When Fractional Fourier Meets Deep Wiener Deconvolution and Selective Frequency Transformer for Image Deblurring.</a></li>
+                <li>Aug 2024: One paper <a href="#">A Sinkhorn Regularized Adversarial Network for Image Guided DEM Super-resolution using Frequency Selective Hybrid Graph Transformer</a> is accepted in ICPR 2024.</li>
+                <li>Jul 2024: One paper <a href="https://ieeexplore.ieee.org/abstract/document/10640440" target="_blank">A Framework for Realistic Paired Dataset Generation for Deep Learning Based Restoration of Satellite Images</a> published in IEEE IGARSS 2024.</li>
+                <li>May 2024: One paper <a href="https://ieeexplore.ieee.org/document/10516593" target="_blank">C-LiSA: A Hierarchical Hybrid Transformer Model Using Orthogonal Cross Attention for Satellite Image Cloud Segmentation</a> published in IEEE TGRS.</li>
+                <li>Mar 2024: One paper: <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/papers/34.pdf" target="_blank">High Resolution Multi-Spectral Image Guided DEM Super-resolution using Sinkhorn Regularized Adversarial Network</a> is accepted in ICLR ML4RS 2024.</li>
             </ul>
 
             <!-- More updates hidden by default -->
             <ul class="more-updates" id="more-updates">
-                <li>Aug 2023: Released new code repository: <a href="#">Efficient Image Reconstruction Models</a></li>
-                <li>Jul 2023: Completed research on: <a href="#">Model Compression Techniques</a></li>
-                <li>Jun 2023: Preprint: <a href="#">Fast Neural Network Approximation Methods</a></li>
-                <li>May 2023: Presented paper at ICML: <a href="#">Generative Modeling for Robotics</a></li>
-                <!-- Continue adding the rest of the updates -->
-                <li>...</li>
-                <li>Mar 2022: Published paper: <a href="#">Deep Learning for Satellite Imagery</a></li>
+                <li>Nov 2023: Preprint: <a href="https://arxiv.org/abs/2311.17475" target="_blank">CLiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation</a></li>
+                <li>Jul 2022: Published paper: <a href="https://link.springer.com/article/10.1007/s11042-022-13034-4" target="_blank">Hiding images within audio using deep generative model</a> at Multimedia Tools and Applications journal.</li>
             </ul>
 
             <!-- Button to show more updates -->
