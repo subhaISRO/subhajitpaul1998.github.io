@@ -267,23 +267,46 @@
 
             <!-- Example Publication 2 -->
             <div class="publication">
-                <img src="your-publication-image2.jpg" alt="Publication Image">
+                <img src="SiRan.png" alt="Publication Image">
                 <div class="pub-info">
                     <p class="pub-title">
-                        Beyond First-order Tweedie: Solving Inverse Problems using Latent Diffusion
+                        A Sinkhorn Regularized Adversarial Network for Image Guided DEM Super-resolution using Frequency Selective Hybrid Graph Transformer
                     </p>
                     <p class="pub-meta">
-                        <span>NEW</span> Litu Rout, Yujia Chen, Abhishek Kumar, Constantine Caramanis, Sanjay Shakkottai
+                        <span>NEW</span> Subhajit Paul, Ashutosh Gupta
                     </p>
                     <p>
-                        We present an efficient second-order approximation using Tweedie’s formula to mitigate the bias incurred in widely used first-order samplers. With this method, we devise a surrogate loss function for every diffusion step to address inverse problems.
+                        We propose a novel hybrid transformer model for generating high-resolution DEMs using multi-spectral satellite imagery as guide. The model combines Densely connected Multi-Residual Blocks (DMRB) with multi-headed Frequency Selective Graph Attention (M-FSGA), using discriminator spatial maps as attention to the guide. We introduce an adversarial objective based on Sinkhorn distance to improve performance of GANs, addressing vanishing gradients and numerical convergence. Experiments across four DEM datasets demonstrate that our model outperforms baselines with sharper details and minimal errors.
                     </p>
                     <div class="pub-links">
-                        <a href="#">Project Page</a>
-                        <a href="#">PDF</a>
+                        <!-- <a href="#">Project Page</a> -->
+                        <!-- <a href="#">PDF</a> -->
                         <a href="#">ArXiv</a>
-                        <a href="#">Code</a>
-                        <a href="#">Demo</a>
+                        <!-- <a href="#">Code</a> -->
+                        <!-- <a href="#">Demo</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Publication 3 -->
+            <div class="publication">
+                <img src="clisa.png" alt="Publication Image">
+                <div class="pub-info">
+                    <p class="pub-title">
+                        C-LiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation
+                    </p>
+                    <p class="pub-meta">
+                        <span>NEW</span> Subhajit Paul, Ashutosh Gupta, S. Manthira Moorthi, Debajyoti Dhar
+                    </p>
+                    <p>
+                        We introduce a hybrid transformer architecture for precise cloud mask generation. The model employs dual orthogonal self-attention (DOSA) and hierarchical cross-channel attention (HC2A) to enhance cloud-specific feature detection. To ensure stability, we theoretically validate these mechanisms with Lipschitz stability analysis with empirical validation against FGSM and PGD-20 attack. We also employ adversarial training with Lovász-Softmax loss. Experiments on satellite datasets, including Landsat-8 and Sentinel-2, show that C-LiSA outperforms state-of-the-art methods, with improved generalization and superior results.
+                    </p>
+                    <div class="pub-links">
+                        <!-- <a href="#">Project Page</a> -->
+                        <a href="https://arxiv.org/pdf/2311.17475" target="_blank">ArXiv</a>
+                        <a href="https://ieeexplore.ieee.org/document/10516593" target="_blank">Paper</a>
+                        <!-- <a href="#">Code</a> -->
+                        <!-- <a href="#">Demo</a> -->
                     </div>
                 </div>
             </div>
