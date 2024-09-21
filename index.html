@@ -71,8 +71,9 @@
             justify-content: space-between;
         }
         .about-section img {
-            width: 180px; /* Set the width for square or rectangular shape */
-            height: 200px; /* For square, keep width and height the same */
+            width: auto; /* Set the width for square or rectangular shape */
+            max-width: 180px;
+            height: auto; /* For square, keep width and height the same */
             /* height: 200px; For rectangular, use a different height */
             object-fit: cover; /* Ensures the image fills the box without distortion */
             margin-left: 20px;
@@ -80,7 +81,7 @@
         }
         .about-links {
             margin-top: 10px;
-            text-align: right;
+            text-align: center;
         }
         .about-links a {
             text-decoration: none;
@@ -199,7 +200,7 @@
             <div class="about-image-container">
                 <img src="my_photo.jpg" alt="Your Photo">
                 <div class="about-links">
-                    <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">CV</a> /
+                    <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">CV</a>/
                     <a href="https://scholar.google.com/citations?user=RWatMrcAAAAJ&hl=en" target="_blank">Google Scholar</a>
                 </div>
             </div>
@@ -232,11 +233,7 @@
         <div id="reviewer" class="section">
             <h2>Reviewer</h2>
             <ul>
-                <li>IEEE TGRS</li>
-                <li>CVPR (2024)</li>
-                <li>ECCV (2024)</li>
-                <li>ICPR (2024)</li>
-                <li>WACV (2025)</li>
+                <li>IEEE TGRS, CVPR (2024), ECCV (2024), ICPR (2024), WACV (2025)</li>
             </ul>
         </div>
 
