@@ -39,6 +39,13 @@
             border: 1px solid #f5f5f5; /* Optional: Light border for images in dark mode */
         }
 
+        header.dark-mode {
+            background-color: #02172d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
         #toggle-theme {
             background: none;
             border: none;
@@ -556,6 +563,7 @@
         const themeIcon = document.getElementById('theme-icon');
 
         toggleButton.addEventListener('click', () => {
+            document.header.classList.toggle('dark-mode');
             // Toggle dark mode class on the body
             document.body.classList.toggle('dark-mode');
 
