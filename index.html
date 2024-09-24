@@ -11,11 +11,18 @@
             padding: 0;
             background-color: #f5f5f5;
         }
+        /* Dark mode */
         body.dark-mode {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        nav.dark-mode {
+            background-color: #222;
+        }
+
+        .section.dark-mode {
+            background-color: #333;
             color: #f5f5f5;
         }
         header {
@@ -516,10 +523,13 @@
 
     <script>
         const toggleButton = document.getElementById('toggle-theme');
-        
+
         toggleButton.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            
+            document.querySelectorAll('.section').forEach(section => section.classList.toggle('dark-mode'));
+            document.querySelector('nav').classList.toggle('dark-mode');
+
+            // Change button text based on the theme
             if (document.body.classList.contains('dark-mode')) {
                 toggleButton.textContent = 'Switch to Light Mode';
             } else {
@@ -527,7 +537,6 @@
             }
         });
     </script>
-
 
 </body>
 </html>
