@@ -15,6 +15,10 @@
         /* Dark mode */
         body.dark-mode {
             background-color: #121212;
+            color: #f5f5f5; /* Light text for readability */
+        }
+
+        body.dark-mode p, body.dark-mode h2, body.dark-mode a {
             color: #f5f5f5;
         }
 
@@ -26,9 +30,13 @@
             background-color: #333;
             color: #f5f5f5;
         }
-/* Ensure the image description and other texts are also readable */
+
         .about-text.dark-mode, .section.dark-mode p {
             color: #f5f5f5;
+        }
+
+        body.dark-mode .about-image-container img {
+            border: 1px solid #f5f5f5; /* Optional: Light border for images in dark mode */
         }
 
         #toggle-theme {
@@ -548,9 +556,17 @@
         const themeIcon = document.getElementById('theme-icon');
 
         toggleButton.addEventListener('click', () => {
+            // Toggle dark mode class on the body
             document.body.classList.toggle('dark-mode');
+
+            // Toggle dark mode on all sections
             document.querySelectorAll('.section').forEach(section => section.classList.toggle('dark-mode'));
-            document.querySelectorAll('a').forEach(link => link.classList.toggle('dark-mode'));
+
+            // Toggle dark mode on all text elements (paragraphs, headers, links)
+            document.querySelectorAll('p, h2, a').forEach(el => el.classList.toggle('dark-mode'));
+
+            // Toggle dark mode on image container if you want to add custom styles for images in dark mode
+            document.querySelectorAll('.about-image-container img').forEach(img => img.classList.toggle('dark-mode'));
 
             // Toggle between moon and sun icons
             if (document.body.classList.contains('dark-mode')) {
@@ -561,7 +577,27 @@
                 themeIcon.classList.add('fa-moon');
             }
         });
+
+        // Ensure dark mode state persists after page reload (optional)
+        document.addEventListener("DOMContentLoaded", function() {
+            const darkModeEnabled = localStorage.getItem('dark-mode');
+            if (darkModeEnabled === "true") {
+                document.body.classList.add('dark-mode');
+                document.querySelectorAll('.section').forEach(section => section.classList.add('dark-mode'));
+                document.querySelectorAll('p, h2, a').forEach(el => el.classList.add('dark-mode'));
+                document.querySelectorAll('.about-image-container img').forEach(img => img.classList.add('dark-mode'));
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Save dark mode state to local storage (optional)
+        toggleButton.addEventListener('click', () => {
+            const darkModeEnabled = document.body.classList.contains('dark-mode');
+            localStorage.setItem('dark-mode', darkModeEnabled);
+        });
     </script>
+
     
 
 </body>
