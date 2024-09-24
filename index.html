@@ -17,14 +17,19 @@
             color: #f5f5f5;
         }
 
-        nav.dark-mode {
-            background-color: #222;
+        a.dark-mode {
+            color: #b3d1ff; /* Light blue for better readability */
         }
 
         .section.dark-mode {
             background-color: #333;
             color: #f5f5f5;
         }
+/* Ensure the image description and other texts are also readable */
+        .about-text.dark-mode, .section.dark-mode p {
+            color: #f5f5f5;
+        }
+
         header {
             background-color: #007bff;
             color: white;
@@ -196,7 +201,7 @@
         <a href="#reviewer">Reviewer</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Experience</a>
-        <button id="toggle-theme">Switch to Night Mode</button>
+        <button id="toggle-theme">New Night Mode</button>
     </nav>
 
     <div class="container">
@@ -527,7 +532,7 @@
         toggleButton.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             document.querySelectorAll('.section').forEach(section => section.classList.toggle('dark-mode'));
-            document.querySelector('nav').classList.toggle('dark-mode');
+            document.querySelectorAll('a').forEach(link => link.classList.toggle('dark-mode'));
 
             // Change button text based on the theme
             if (document.body.classList.contains('dark-mode')) {
@@ -537,6 +542,7 @@
             }
         });
     </script>
+
 
 </body>
 </html>
