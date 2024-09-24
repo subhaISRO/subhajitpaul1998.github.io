@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subhajit Paul - Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +12,39 @@
             padding: 0;
             background-color: #f5f5f5;
         }
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        a.dark-mode {
+            color: #b3d1ff; /* Light blue for better readability */
+        }
+
+        .section.dark-mode {
+            background-color: #333;
+            color: #f5f5f5;
+        }
+/* Ensure the image description and other texts are also readable */
+        .about-text.dark-mode, .section.dark-mode p {
+            color: #f5f5f5;
+        }
+
+        #toggle-theme {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #f5f5f5;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        #toggle-theme i {
+            font-size: 24px;
+
         header {
             background-color: #007bff;
             color: white;
@@ -182,6 +216,9 @@
         <a href="#reviewer">Reviewer</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Experience</a>
+        <button id="toggle-theme">
+            <i id="theme-icon" class="fas fa-moon"></i> <!-- Default moon icon for dark mode -->
+        </button>
     </nav>
 
     <div class="container">
@@ -193,15 +230,14 @@
                 <p>
                     I am a working as a Scientist/Engineer-SC at the <a href="https://www.sac.gov.in/Vyom/" target="_blank">Space Applications Centre (SAC)</a>, <a href="https://www.isro.gov.in" target="_blank">Indian Space Research Organisation (ISRO)</a>.
                     My work focuses on developing advanced image processing and computer vision solutions to enhance radiometric quality of high-resolution satellite imagery.
-                    In addition, I am engaged in designing operational deep learning solutions for image inverse problems and segmentation domain. My research interests also include theoretically analysis of model stability, robustness and convergence properties.
-                    I have a deep interest in investigating traditional image processing and optimization techniques to develop reliable cutting edge deep learning solutions for image inverse problems.
-                </p>
+                    In addition, I am engaged in designing operational deep learning solutions regarding image restoration, band reconstruction as well as multi-class segmentation for satellie images. Some of my previous research include theoretical analysis of model stability, robustness and convergence properties.
+                    Currently, I am investigating classical image processing and optimal transport methods to explore their feasibility with generative models and sochastic optimization techniques to address various image inverse problems.
                 <p>
-                    I received my B.Tech from Indian Institute of Space Science and Technology (<a href="https://www.iist.ac.in" target="_blank">IIST</a>). I was fornuate to get the opprtunity to work at Virtual Reality (VR) lab under the supervision of  <a href="https://www.iist.ac.in/avionics/deepak.mishra" target="_blank">Prof. Deepak Mishra</a> during my undergrad research. 
+                    I received my B.Tech from Indian Institute of Space Science and Technology (<a href="https://www.iist.ac.in" target="_blank">IIST</a>). I was fortunate to get the opprtunity to work at Virtual Reality (VR) lab under the supervision of  <a href="https://www.iist.ac.in/avionics/deepak.mishra" target="_blank">Prof. Deepak Mishra</a> during my undergrad research. 
                 </p>
                 <p style="display: flex; align-items: center;">
                     My CV can be found here:
-                    <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">
+                    <a href="https://drive.google.com/file/d/1GZu-dw41WB0KToPLzsX5T1xLhGAXoCqu/view?usp=share_link" target="_blank">
                         <img src="resume.png" alt="CV Icon" style="width:30px; height:auto; margin-left:10px;">
                     </a>
                 </p>
@@ -306,7 +342,7 @@
                     <div class="pub-links">
                         <!-- <a href="#">Project Page</a> -->
                         <!-- <a href="#">PDF</a> -->
-                        <a href="#">ArXiv</a>
+                        <a href="https://arxiv.org/pdf/2409.14198" target="_blank">ArXiv</a>
                         <!-- <a href="#">Code</a> -->
                         <!-- <a href="#">Demo</a> -->
                     </div>
@@ -506,6 +542,24 @@
             moreUpdates.style.display = "none";
         });
     </script>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-theme');
+
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('.section').forEach(section => section.classList.toggle('dark-mode'));
+            document.querySelectorAll('a').forEach(link => link.classList.toggle('dark-mode'));
+
+            // Change button text based on the theme
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Switch to Light Mode';
+            } else {
+                toggleButton.textContent = 'Switch to Night Mode';
+            }
+        });
+    </script>
+
 
 </body>
 </html>
