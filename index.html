@@ -1,598 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhajit Paul - Personal Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .about-links img {
-        filter: none;
-        }
-        body.dark-mode .about-links img {
-            filter: invert(1);
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        /* Dark mode */
-        body.dark-mode {
-            background-color: #121212;
-            color: #f5f5f5;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subhajit Paul — Researcher • Developer • Scientist</title>
+  <meta name="description" content="Personal website of Subhajit Paul. Research on geometric generative models, multimodal image processing, and remote sensing. Reviewer: TGRS, CVPR, ECCV, ICPR, WACV." />
+  <link rel="icon" href="my_photo.jpg" />
+  <link rel="preload" as="image" href="my_photo.jpg" />
+  <meta property="og:title" content="Subhajit Paul — Researcher • Developer • Scientist" />
+  <meta property="og:description" content="PhD student (IISc) & Scientist (ISRO). Research: geometric representation of generative models; image restoration; DEM SR; cloud segmentation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="my_photo.jpg" />
+  <meta property="og:url" content="https://subhaisro.github.io/subhajitpaul1998.github.io/" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #38bdf8; /* cyan-400 */
+      --accent: #60a5fa; /* blue-400 */
+      --card: #111827; /* gray-900 */
+      --border: #1f2937;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --w: min(1100px, 92vw);
+    }
+    @media (prefers-color-scheme: light) {
+      :root{ --bg:#ffffff; --panel:#f8fafc; --text:#0f172a; --muted:#475569; --card:#ffffff; --border:#e5e7eb; --brand:#0891b2; --accent:#2563eb; }
+      body { background-image: radial-gradient(600px 400px at 80% -10%, #dbeafe 20%, transparent 70% ); }
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; }
+    body{
+      font: 16px/1.6 ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      letter-spacing: .2px;
+    }
+    a{ color: var(--brand); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    img{ max-width:100%; height:auto; display:block; border-radius: 10px; }
+    .container{ width: var(--w); margin-inline:auto; }
+    header{ position: sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(6px); background: color-mix(in oklab, var(--panel) 86%, transparent); border-bottom:1px solid var(--border); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding: 10px 4px; }
+    .brand{ display:flex; gap:12px; align-items:center; }
+    .brand img{ width:42px; height:42px; border-radius:999px; box-shadow: var(--shadow); }
+    .brand h1{ font-size: clamp(18px, 3vw, 22px); margin:0; letter-spacing:.3px }
+    .nav a{ color: var(--text); opacity:.9 }
+    .menu{ display:flex; gap:18px; align-items:center; }
+    .menu a{ font-weight:600; font-size:14px; opacity:.9 }
+    .hamburger{ display:none; border:1px solid var(--border); padding:8px 10px; border-radius:12px; background:var(--card); }
 
-        a.dark-mode {
-            color: #b3d1ff; /* Light blue for better readability */
-        }
+    main{ padding: 34px 0 80px; }
+    section{ scroll-margin-top: 88px; padding: 26px 0; }
+    .hero{ display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
+    .hero h2{ font-size: clamp(28px, 4.6vw, 44px); line-height:1.2; margin:0 0 10px; }
+    .hero .kicker{ color: var(--brand); font-weight:700; letter-spacing:.4px; text-transform:uppercase; font-size:12px; }
+    .lead{ color: var(--muted); font-size: clamp(16px, 2.4vw, 18px); }
+    .badges{ display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 0; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); font-weight:600; }
+    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn.primary{ background: linear-gradient(135deg, var(--brand), var(--accent)); color:#081018; border-color: transparent; }
+    .btn img{ width:18px; height:18px; border-radius:0; box-shadow:none }
 
-        .section.dark-mode {
-            background-color: #333;
-            color: #f5f5f5;
-        }
-/* Ensure the image description and other texts are also readable */
-        .about-text.dark-mode, .section.dark-mode p {
-            color: #f5f5f5;
-        }
+    h3{ font-size: clamp(22px, 2.8vw, 28px); margin: 0 0 16px; }
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card{ background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+    .pub{ grid-column: span 6; display:flex; gap:14px; align-items:flex-start; }
+    .pub img.thumb{ width:110px; height:80px; object-fit:cover; border-radius:10px; }
+    .pub h4{ margin: 4px 0 6px; font-size: 16px; line-height:1.35 }
+    .pub .meta{ color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .links{ display:flex; flex-wrap:wrap; gap:8px; }
 
-        header.dark-mode {
-            background-color: #062342;
-            color: white;
-        }
+    .timeline{ position:relative; }
+    .timeline::before{ content:""; position:absolute; left:10px; top:6px; bottom:6px; width:2px; background: var(--border); }
+    .item{ position:relative; padding-left:34px; margin: 10px 0 16px; }
+    .item::marker{ content:""; }
+    .item::before{ content:""; position:absolute; left:4px; top:.45em; width:12px; height:12px; background: var(--brand); border-radius:50%; box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 25%, transparent); }
 
-        nav.dark-mode a {
-            color: #f5f5f5;
-        }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap }
+    .chip{ background:var(--panel); border:1px solid var(--border); color: var(--muted); font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px }
 
-        #toggle-theme {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #f5f5f5;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-        }
+    footer{ border-top:1px solid var(--border); padding: 24px 0 36px; color: var(--muted); }
 
-        #toggle-theme i {
-            font-size: 24px;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        .container {
-            padding: 40px 80px; /* Adding padding to the left and right for spacing */
-            max-width: 1200px;
-            margin: auto; /* Center the content */
-        }
-        .section {
-            margin: 40px 0;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .section h2 {
-            margin-bottom: 20px;
-            color: #007bff;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        ul li a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        ul li a:hover {
-            text-decoration: none;
-            color: #007bff
-        }
-        .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .about-section img {
-            width: auto; /* Set the width for square or rectangular shape */
-            max-width: 180px;
-            height: auto; /* For square, keep width and height the same */
-            /* height: 200px; For rectangular, use a different height */
-            object-fit: cover; /* Ensures the image fills the box without distortion */
-            margin-left: 20px;
-            border-radius: 8px;
-        }
-        .about-links {
-            margin-top: 10px;
-            text-align: center;
-            display: flex; /* Use flexbox to align the links */
-            justify-content: space-between; /* Ensure even spacing between the links */
-            width: 100%; /* Adjust to control the space between the links */
-        }
-        .about-links a {
-            text-decoration: none;
-            color: #007bff;
-            margin-right: 15px;
-        }
-        .about-links a:hover {
-            text-decoration: none;
-        }
-        .about-image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Align the links to be centered below the image */
-        }
-        footer {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        /* Style for publications */
-        .publication {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-        }
-        .publication img {
-            width: auto; /* Rectangular image */
-            max-width: 120px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-        .publication .pub-info {
-            max-width: 1000px;
-        }
-        .pub-title {
-            font-weight: bold;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-        .pub-meta {
-            margin-bottom: 10px;
-        }
-        .pub-meta span {
-            background-color: yellow;
-            padding: 2px 5px;
-            margin-right: 10px;
-            font-weight: bold;
-            color: red;
-        }
-        .pub-links a {
-            margin-right: 10px;
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .pub-links a:hover {
-            text-decoration: underline;
-        }
-        .more-updates {
-            display: none; /* Hidden by default */
-        }
-        #moreBtn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-        #moreBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .muted{ color: var(--muted) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+    /* Updates collapse */
+    #updates .older{ display:none }
+    #updates.expanded .older{ display:block }
+    #updates .toggle{ cursor:pointer }
+
+    /* Mobile */
+    @media (max-width: 880px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero .photo{ order:-1; max-width: 340px; margin-inline:auto }
+      .pub{ grid-column: span 12; }
+      .menu{ display:none }
+      .hamburger{ display:inline-flex }
+      .menu.open{ display:flex; flex-direction:column; position:absolute; right:12px; top:58px; background:var(--card); padding:10px; border-radius:14px; box-shadow: var(--shadow); gap:10px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Subhajit Paul",
+    "jobTitle": "PhD Student & Scientist/Engineer-SD",
+    "url": "https://subhaisro.github.io/subhajitpaul1998.github.io/",
+    "image": "my_photo.jpg",
+    "affiliation": [
+      {"@type":"Organization","name":"Indian Institute of Science (IISc)"},
+      {"@type":"Organization","name":"Indian Space Research Organisation (ISRO)"}
+    ],
+    "sameAs": [
+      "https://scholar.google.com/", 
+      "https://in.linkedin.com/"
+    ]
+  }
+  </script>
 </head>
 <body>
-
-    <header>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <img src="my_photo.jpg" alt="Portrait of Subhajit Paul" width="42" height="42" loading="eager" />
         <h1>Subhajit Paul</h1>
-        <p>Researcher | Developer | Scientist</p>
-    </header>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#about">About</a>
-        <a href="#updates">Updates</a>
-        <a href="#reviewer">Reviewer</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Experience</a>
-        <button id="toggle-theme">
-            <i id="theme-icon" class="fas fa-moon"></i> <!-- Default moon icon for dark mode -->
-        </button>
-    </nav>
-
-    <div class="container">
-        
-        <!-- About Section with Image -->
-        <div id="about" class="section about-section">
-            <div class="about-text">
-                <h2>About</h2>
-                <p>
-                    I am a first-year computer science PhD student at <a href="https://iisc.ac.in" target="_blank">Indian Institute of Science (IISc)</a>, advised by <a href="https://mllab.csa.iisc.ac.in/" target="_blank">Prof. Chiranjib Bhattacharya</a>. 
-                    My reserach primariliy focuses on theoretically analysing geometric representation of generative models and their applications on multi-modal image handling.
-                <p>    
-                    I am also working as a Scientist/Engineer-SD at the <a href="https://www.sac.gov.in/Vyom/" target="_blank">Space Applications Centre (SAC)</a>, <a href="https://www.isro.gov.in" target="_blank">Indian Space Research Organisation (ISRO)</a>, where my work focuses on developing advanced image processing and computer vision solutions to enhance radiometric quality of high-resolution satellite imagery.
-                    In addition, I am engaged in designing operational deep learning solutions regarding image restoration, band reconstruction as well as multi-class segmentation for satellie images. Some of my previous research include theoretical analysis of model stability, robustness and convergence properties.
-                <p>
-                    I received my B.Tech from Indian Institute of Space Science and Technology (<a href="https://www.iist.ac.in" target="_blank">IIST</a>). I was fortunate to get the opprtunity to work at Virtual Reality (VR) lab under the supervision of  <a href="https://www.iist.ac.in/avionics/deepak.mishra" target="_blank">Prof. Deepak Mishra</a> during my undergrad research. 
-                </p>
-                <p style="display: flex; align-items: center;">
-                    My CV can be found here:
-                    <a href="https://drive.google.com/file/d/1jkcn8IUUYeD6QNIamq9uMoniAztkdKTD/view?usp=share_link" target="_blank">
-                        <img src="cv2.png" alt="CV Icon" style="width:30px; height:auto; margin-left:10px;">
-                    </a>
-                </p>
-                <p style="display: flex; align-items: center;">
-                    I am also available at:
-                    <a href="https://scholar.google.com/citations?user=RWatMrcAAAAJ&hl=en" target="_blank">
-                        <img src="google-scholar.png" alt="Google Scholar Icon" style="width:25px; height:auto; margin-left:10px;">
-                    </a>
-                    <a href="mailto:subhajitpaul27998@gmail.com" target="_blank">
-                        <img src="gmail.png" alt="Gmail Icon" style="width:35px; height:auto; margin-left:10px;">
-                    </a>
-                    <a href="https://in.linkedin.com/in/subhajit-paul-2325881a2" target="_blank">
-                        <img src="linkedin.png" alt="LinkedIn Icon" style="width:30px; height:auto; margin-left:10px;">
-                    </a>
-                </p>                
-            </div>
-    
-            <div class="about-image-container">
-                <img src="my_photo.jpg" alt="Your Photo">
-                <!-- <div class="about-links">
-                    <a href="https://drive.google.com/file/d/1pExM6m6oxi7i_r0kK61zYR9Rhtj0tKyO/view?usp=share_link" target="_blank">CV</a>/<a href="https://scholar.google.com/citations?user=RWatMrcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-                </div> -->
-            </div>
+      </a>
+      <nav>
+        <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+        <div class="menu">
+          <a href="#about">About</a>
+          <a href="#updates">Updates</a>
+          <a href="#reviewer">Reviewer</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
         </div>
-
-        <!-- Updates Section -->
-        <div id="updates" class="section">
-            <h2>Updates</h2>
-            <ul id="latest-updates">
-                <!-- Latest 5 updates visible -->
-                <li><strong>Oct 2024</strong> : Paper <a href="https://arxiv.org/abs/2409.02056" target="_blank">F2former: When Fractional Fourier Meets Deep Wiener Deconvolution and Selective Frequency Transformer for Image Deblurring</a> is accepted at WACV, 2025.</li>                
-                <li><strong>Sep 2024</strong> : Preprint: <a href="https://arxiv.org/abs/2409.02056" target="_blank">F2former: When Fractional Fourier Meets Deep Wiener Deconvolution and Selective Frequency Transformer for Image Deblurring.</a></li>
-                <li><strong>Aug 2024</strong>: One paper <a href="https://arxiv.org/pdf/2409.14198">A Sinkhorn Regularized Adversarial Network for Image Guided DEM Super-resolution using Frequency Selective Hybrid Graph Transformer</a> is accepted in ICPR 2024.</li>
-                <li><strong>Jul 2024</strong>: One paper <a href="https://ieeexplore.ieee.org/abstract/document/10640440" target="_blank">A Framework for Realistic Paired Dataset Generation for Deep Learning Based Restoration of Satellite Images</a> published in IEEE IGARSS 2024.</li>
-                <li><strong>May 2024</strong>: One paper <a href="https://ieeexplore.ieee.org/document/10516593" target="_blank">C-LiSA: A Hierarchical Hybrid Transformer Model Using Orthogonal Cross Attention for Satellite Image Cloud Segmentation</a> published in IEEE TGRS.</li>
-            </ul>
-
-            <!-- More updates hidden by default -->
-            <ul class="more-updates" id="more-updates">
-                <li><strong>Mar 2024</strong>: One paper: <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/papers/34.pdf" target="_blank">High Resolution Multi-Spectral Image Guided DEM Super-resolution using Sinkhorn Regularized Adversarial Network</a> is accepted in ICLR ML4RS 2024.</li>
-                <li><strong>Nov 2023</strong>: Preprint: <a href="https://arxiv.org/abs/2311.17475" target="_blank">CLiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation</a></li>
-                <li><strong>Jul 2022</strong>: Published paper: <a href="https://link.springer.com/article/10.1007/s11042-022-13034-4" target="_blank">Hiding images within audio using deep generative model</a> at Multimedia Tools and Applications journal.</li>
-            </ul>
-
-            <!-- Button to show more updates -->
-            <button id="moreBtn" onclick="showMore()">Show More</button>
-        </div>
-
-
-        <!-- Reviewer Section -->
-        <div id="reviewer" class="section">
-            <h2>Reviewer</h2>
-            <ul>
-                <li>IEEE TGRS, CVPR (2024), ECCV (2024), ICPR (2024), WACV (2025)</li>
-            </ul>
-        </div>
-
-
-        <!-- Publications Section -->
-        <div id="publications" class="section">
-            <h2>Publications</h2>
-
-            <!-- Example Publication 1 -->
-            <div class="publication">
-                <img src="f2former.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        F2former: When Fractional Fourier Meets Deep Wiener Deconvolution and Selective Frequency Transformer for Image Deblurring
-                    </p>
-                    <p class="pub-meta">
-                        <span>NEW</span> <strong>Subhajit Paul</strong>, Sahil Kumawat, Ashutosh Gupta, Deepak Mishra
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>WACV, 2025</em>
-                    </p>
-                    <p>
-                        We introduce a novel image deblurring based on the Fractional Fourier Transform (FRFT), a spatial-frequency representation, making it ideal for processing non-stationary signals like images. Here, we present a Fractional Fourier Transformer (F2former), by combining the fractional Fourier based fwature Wiener deconvolution and a multi-branch encoder-decoder transformer based on a new fractional frequency aware transformer block. We design it using a fractional frequency aware self-attention (F2SA) to estimate element-wise product attention based on important frequency components and a novel feed-forward network based on frequency division multiplexing to refine high and low frequency features separately for efficient latent clear image restoration. Experimental results for the cases of both motion and defocus deblurring show that the performance of our proposed method is superior to other SOTA approaches.
-                    </p>
-                    <div class="pub-links">
-                        <a href="https://subhaisro.github.io/f2former.github.io/" target="_blank">Project Page</a>
-                        <!-- <a href="#">PDF</a> -->
-                        <a href="https://arxiv.org/pdf/2409.02056" target="_blank">ArXiv</a>
-                        <a href="#" target="_blank">Paper</a>
-                        <a href="https://drive.google.com/file/d/13FL5Jsy2SJT2f6_Lp7oju3jM3Cls6Ftt/view?usp=share_link" target="_blank">Poster</a>
-                        <a href="https://drive.google.com/file/d/1jld3JiPZjYtpA-Ppb86sL-NhbMgD4UkH/view?usp=share_link" target="_blank">Slides</a>
-                        <a href="https://drive.google.com/file/d/1TxOhbKrUxx2dLDIUuJIX0eKrHq7y9n94/view?usp=share_link" target="_blank">Presentation</a>
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 2 -->
-            <div class="publication">
-                <img src="SiRan.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        A Sinkhorn Regularized Adversarial Network for Image Guided DEM Super-resolution using Frequency Selective Hybrid Graph Transformer
-                    </p>
-                    <p class="pub-meta">
-                        <strong>Subhajit Paul</strong>, Ashutosh Gupta
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>ICPR</em>, 2024 (<strong>First round acceptance rate: 31%</strong>)
-                    </p>
-                    <p>
-                        We propose a novel hybrid transformer model for generating high-resolution DEMs using multi-spectral satellite imagery as guide. The model combines Densely connected Multi-Residual Blocks (DMRB) with multi-headed Frequency Selective Graph Attention (M-FSGA), using discriminator spatial maps as attention to the guide. We introduce an adversarial objective based on Sinkhorn distance to improve performance of GANs, addressing vanishing gradients and numerical convergence. Experiments across four DEM datasets demonstrate that our model outperforms baselines with sharper details and minimal errors.
-                    </p>
-                    <div class="pub-links">
-                        <a href="https://subhaisro.github.io/siran-dem-sr.github.io/" target="_blank">Project Page</a>
-                        <!-- <a href="#">Project Page</a> -->
-                        <!-- <a href="#">PDF</a> -->
-                        <a href="https://arxiv.org/pdf/2409.14198" target="_blank">ArXiv</a>
-                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-78498-9_27" target="_blank">Paper</a>
-                        <a href="https://drive.google.com/file/d/17ErR6iMmJQzgaj6T_O3kyIHDeZ8hSKqw/view?usp=sharing" target="_blank">Poster</a>
-                        <a href="https://drive.google.com/file/d/1qt1bH8SfhlKrhiVtH6fkUMK6zNgsmQ9F/view?usp=sharing" target="_blank">Slides</a>
-                        <a href="https://drive.google.com/file/d/1VApaLB2wDwpZo-Se6AUtiHobGiwSyjjB/view?usp=sharing" target="_blank">Presentation</a>
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 3 -->
-            <div class="publication">
-                <img src="clisa.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        C-LiSA: A Hierarchical Hybrid Transformer Model using Orthogonal Cross Attention for Satellite Image Cloud Segmentation
-                    </p>
-                    <p class="pub-meta">
-                        <strong>Subhajit Paul</strong>, Ashutosh Gupta, S. Manthira Moorthi, Debajyoti Dhar
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>IEEE Transaction on Geoscience and Remote Sensing (TGRS)</em> (<strong>Impact Factor: 8.2</strong>)
-                    </p>
-                    <p>
-                        We introduce a hybrid transformer architecture for precise cloud mask generation. The model employs dual orthogonal self-attention (DOSA) and hierarchical cross-channel attention (HC2A) to enhance cloud-specific feature detection. To ensure stability, we theoretically validate these mechanisms with Lipschitz stability analysis with empirical validation against FGSM and PGD-20 attack. We also employ adversarial training with Lovász-Softmax loss. Experiments on satellite datasets, including Landsat-8 and Sentinel-2, show that C-LiSA outperforms state-of-the-art methods, with improved generalization and superior results.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <a href="https://arxiv.org/pdf/2311.17475" target="_blank">ArXiv</a>
-                        <a href="https://ieeexplore.ieee.org/document/10516593" target="_blank">Paper</a>
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication4 -->
-            <div class="publication">
-                <img src="igarss.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        A framework for Realistic Paired Dataset Generation for Deep Learning based Restoration of Satellite Images
-                    </p>
-                    <p class="pub-meta">
-                        Ashutosh Gupta, <strong>Subhajit Paul</strong>, Arghya Bhattacharya, Prachi Jain
-                        <br>
-                        <em>IEEE IGARSS 2024</em> (<strong>Oral</strong>)
-                    </p>
-                    <p>
-                        We propose a framework using a GAN and conventional degradation estimation techniques to generate paired datasets for satellite image restoration. The surrogate datasets are generated from images with desirable characteristics, enabling deep learning models to achieve impressive restoration results without requiring actual clean data. Experiments on 30 cm Worldview-3 and Cartosat-3 images show that this approach is both simple and effective for satellite image restoration.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <!-- <a href="https://arxiv.org/pdf/2311.17475" target="_blank">ArXiv</a> -->
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10640440" target="_blank">Paper</a>
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 5 -->
-            <div class="publication">
-                <img src="ml4rs.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        High-resolution Multi-spectral Image Guided DEM Super-resolution using Sinkhorn Regularized Adversarial Network
-                    </p>
-                    <p class="pub-meta">
-                        <strong>Subhajit Paul</strong>, Ashutosh Gupta
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>ICLR Machine Learning 4 Remote Sensing (ML4RS) workshop</em>, 2024 (shorter version)
-                    </p>
-                    <p>
-                        We introduce an adversarial model for generating high-resolution DEMs using HR multi-spectral satellite imagery as a prior, with discriminator activations serving as spatial attention. The model incorporates a Dense Multi-Residual Block (DMRB) for efficient gradient flow and uses Sinkhorn distance with GAN to improve adversarial stability. Experiments on SRTM and Cartosat-1 DEM datasets demonstrate superior performance over state-of-the-art methods, both qualitatively and quantitatively. We also visualize high-resolution DEMs across diverse terrains to validate our model’s effectiveness.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/papers/34.pdf" target="_blank">PDF</a>
-                        <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/posters/34.pdf" target="_blank">Poster</a>
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 6 -->
-            <div class="publication">
-                <img src="multimedia.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        Hiding Images within Audio using Deep Generative Model
-                    </p>
-                    <p class="pub-meta">
-                        <strong>Subhajit Paul</strong>, Deepak Mishra
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>Multimedia Tools and Applications</em>, (<strong>Impact Factor: 3.6</strong>)
-                    </p>
-                    <p>
-                        We introduce a method to hide images within audio by transforming the audio steganography problem into image steganography using mel-spectrograms as the cover medium. Using deep generative models, our approach enhances the perceptual quality of the reconstructed audio and images, while effectively evading detection by steganalysis tools.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <a href="https://link.springer.com/article/10.1007/s11042-022-13034-4" target="_blank">Paper</a>
-                        <!-- <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/posters/34.pdf" target="_blank">Poster</a> -->
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 7 -->
-            <div class="publication">
-                <img src="ingarss.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        Reconstruction of Missing Multiband Images for High Resolution Multispectral Sensors Using Wasserstein GAN
-                    </p>
-                    <p class="pub-meta">
-                        Md Aminur Hossain, Ashutosh Gupta, <strong>Subhajit Paul</strong>, Sanjay K Singh, S. Devakanth Naidu, Debajyoti Dhar
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>IEEE InGARSS</em>, 2023 
-                    </p>
-                    <p>
-                        We propose a method to reconstruct lost multiband regions in MX images using a WGAN with expert regularization. Our approach synthesizes RGB bands from co-registered NIR and PAN images. Experiments on Cartosat-MX images show that the reconstructed images are spatially and spectrally accurate.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10490403" target="_blank">Paper</a>
-                        <!-- <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/posters/34.pdf" target="_blank">Poster</a> -->
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example Publication 8 -->
-            <div class="publication">
-                <img src="rasse.png" alt="Publication Image">
-                <div class="pub-info">
-                    <p class="pub-title">
-                        DEM Generation from Mono-Multispectral Images via Uncalibrated Epipolar Rectification and 3D Registration
-                    </p>
-                    <p class="pub-meta">
-                        Ashutosh Gupta, Hemant K Lalwawni, <strong>Subhajit Paul</strong>, Debajyoti Dhar
-                        <br> <!-- This forces the journal/conference to appear on the next line -->
-                        <em>IEEE RASSE</em>, 2023 
-                    </p>
-                    <p>
-                        We propose a novel DEM generation pipeline that leverages narrow-baseline information from a single multispectral image to produce sub-pixel accurate disparity maps, addressing spectral variations. The final DEM is generated using reference Ground Control Points (GCPs) and iterative registration. Applied to Resourcesat-2 LISS-IV images with a low BIH ratio of 0.018, our method computes sub-pixel disparity at 1/50th of a pixel. Comparison with Cartosat-1 DEMs shows strong elevation accuracy, even in hilly regions, enabling DEM generation from multispectral images with low B/H ratios.
-                    </p>
-                    <div class="pub-links">
-                        <!-- <a href="#">Project Page</a> -->
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10363500" target="_blank">Paper</a>
-                        <!-- <a href="https://ml-for-rs.github.io/iclr2024/camera_ready/posters/34.pdf" target="_blank">Poster</a> -->
-                        <!-- <a href="#">Code</a> -->
-                        <!-- <a href="#">Demo</a> -->
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- Add more publications as needed -->
-        </div>
-
-         <!-- Projects Section -->
-         <div id="projects" class="section">
-            <h2>Professional Experience</h2>
-            <em>Scientist/Engineer-SC at Space Applications Centre (SAC), ISRO, January 2021-Present</em>
-            <ul>
-                <li><strong>1. Operalization activities:</strong>  Developed advanced image processing and machine learning solutions including <em>design of deep band reconstruction and restoration algorithms along with striping correction, image matching and semantic map generation techniques to improve radiometric quality of high-resolution satellite imagery.</em> Deployed developed techniques at <a href="https://www.nrsc.gov.in" target="_blank">National Remote Sensing Centre (NRSC)</a>, <strong>India's only ground station</strong> to generate and distribute high quality 0.3m - 1.6m spatial resolution satellite data across various national and international organizations. </li>
-                <li><strong>2. Mission activities:</strong> Led as <strong>operation manager (OM)</strong> for ISRO's <strong>HRSAT</strong> mission towards the development of cutting edge deep super-resolution and restoration algorithms to improve radiometric quality. In addition, actively contributed in optimizing code and developed algorithms for data processing module in <strong>Chandrayaan-3 mission</strong> towards seamless generation of high resolution <em>spacecraft landing imagery at the south pole of the Moon</em>.</li>
-                <li><strong>3. Research activities:</strong> Carried out multiple research projects as the focal person including development of <strong>DEM super-resolution</strong> pipeline using <em>frequency selective graph transformer</em> and <em>Sinkhorn regularized GAN</em>, designing a <em>Fractional Fourier</em> based <strong>image deblurring transformer</strong> with <em>feature Wiener deconvolution</em>, and developing <em>adversarially stable</em> <strong>multi-class segmentation</strong> model which is validated through <em>Lipschitz bound analysis</em>. In addition, as <strong>principal investigator (PI)</strong> also collaborated with top leading Indian institutions on different remote sensing applications oriented projects like dehazing, and change detection by providing technical guidance.</li>
-                <li><strong>4. Others:</strong> Mentored multiple undergraduate students on different research projects, including deep image restoration, generating and validating multi-class segmentation datasets with unsupervised domain adaptation for very high-resolution satellie data etc. Also delivered talk and tutorial on applications of deep learning techniques in remote sensing applications to senior scientists at Sensor Development Area (SEDA), SAC, ISRO.</li>
-            </ul>
-        </div>
-
+      </nav>
     </div>
+  </header>
 
-    <!-- Footer with Contact Info -->
-    <!-- <footer>
-        <p>Contact Info: <a href="mailto:subhajitpaul27998@gmail.com">subhajitpaul27998@gmail.com</a> | LinkedIn: <a href="https://in.linkedin.com/in/subhajit-paul-2325881a2">linkedin.com/in/subhajit-paul</a></p>
-    </footer> -->
+  <main class="container" id="top">
+    <!-- Hero / About -->
+    <section id="about" class="hero">
+      <div>
+        <div class="kicker">Researcher • Developer • Scientist</div>
+        <h2>Geometric generative models, multimodal image processing, and remote sensing</h2>
+        <p class="lead">
+          I’m a first‑year Computer Science PhD student at <strong>IISc</strong>, advised by Prof. Chiranjib Bhattacharya. I also work as a Scientist/Engineer‑SD at <strong>ISRO (SAC)</strong>. My current research focuses on theoretically analysing the geometric representation of generative models and applications to multi‑modal image handling. Previously, I’ve worked on model stability, robustness and convergence.
+        </p>
+        <div class="badges">
+          <a class="btn primary" href="https://drive.google.com" target="_blank" rel="noopener">📄 CV</a>
+          <a class="btn" href="mailto:subhajit.paul@example.com"><img src="gmail.png" alt="Gmail" width="18" height="18"/> Email</a>
+          <a class="btn" href="https://scholar.google.com" target="_blank" rel="noopener"><img src="google-scholar.png" alt="Google Scholar" width="18" height="18"/> Scholar</a>
+          <a class="btn" href="https://in.linkedin.com" target="_blank" rel="noopener"><img src="linkedin.png" alt="LinkedIn" width="18" height="18"/> LinkedIn</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="my_photo.jpg" alt="Subhajit Paul" width="560" height="560" loading="lazy" />
+      </div>
+    </section>
 
-    <script>
-        function showMore() {
-            var moreUpdates = document.getElementById("more-updates");
-            var moreBtn = document.getElementById("moreBtn");
+    <!-- Updates -->
+    <section id="updates">
+      <h3>Updates</h3>
+      <div class="card">
+        <ul style="margin:0; padding-left:18px">
+          <li><strong>Oct 2024</strong> — <a href="https://arxiv.org" target="_blank" rel="noopener">F2Former</a> accepted at <em>WACV 2025</em>.</li>
+          <li><strong>Aug–Sep 2024</strong> — <a href="https://arxiv.org" target="_blank" rel="noopener">F2Former preprint</a>; <a href="https://arxiv.org" target="_blank" rel="noopener">DEM SR (Sinkhorn + Hybrid Graph Transformer)</a> accepted at <em>ICPR 2024</em>.</li>
+          <li><strong>May–Jul 2024</strong> — <a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">Cloud segmentation (C‑LiSA)</a> in <em>IEEE TGRS</em>; <a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">Paired dataset generation</a> in <em>IGARSS 2024</em>.</li>
+          <div class="older">
+            <li><strong>Mar 2024</strong> — <a href="https://ml-for-rs.github.io" target="_blank" rel="noopener">ICLR ML4RS workshop</a> paper on DEM SR.</li>
+            <li><strong>Nov 2023</strong> — <a href="https://arxiv.org" target="_blank" rel="noopener">C‑LiSA preprint</a>.</li>
+            <li><strong>Jul 2022</strong> — <a href="https://link.springer.com" target="_blank" rel="noopener">Audio‑image steganography</a> in <em>MTAP</em>.</li>
+          </div>
+        </ul>
+        <div style="margin-top:10px">
+          <button class="btn toggle" onclick="document.getElementById('updates').classList.toggle('expanded')">Show more / less</button>
+        </div>
+      </div>
+    </section>
 
-            // Toggle the display property
-            if (moreUpdates.style.display === "none" || moreUpdates.style.display === "") {
-                moreUpdates.style.display = "block";  // Show the hidden updates
-                moreBtn.innerHTML = "Show Less";      // Change button text
-            } else {
-                moreUpdates.style.display = "none";   // Hide the updates again
-                moreBtn.innerHTML = "Show More";      // Change button text back
-            }
-        }
+    <!-- Reviewer -->
+    <section id="reviewer">
+      <h3>Reviewer Service</h3>
+      <div class="chips">
+        <span class="chip">IEEE TGRS</span>
+        <span class="chip">CVPR 2024</span>
+        <span class="chip">ECCV 2024</span>
+        <span class="chip">ICPR 2024</span>
+        <span class="chip">WACV 2025</span>
+      </div>
+    </section>
 
-        // Ensure the "more-updates" section is hidden on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            var moreUpdates = document.getElementById("more-updates");
-            moreUpdates.style.display = "none";
-        });
-    </script>
+    <!-- Publications -->
+    <section id="publications">
+      <h3>Selected Publications</h3>
+      <div class="grid">
+        <!-- Pub 1 -->
+        <article class="card pub" aria-label="F2Former WACV 2025">
+          <img class="thumb" src="f2former.png" alt="F2Former project thumbnail" width="110" height="80" loading="lazy" />
+          <div>
+            <h4>F2Former: Fractional Fourier + Wiener Deconvolution + Selective Frequency Transformer for Image Deblurring</h4>
+            <div class="meta">Subhajit Paul, Sahil Kumawat, Ashutosh Gupta, Deepak Mishra • <strong>WACV 2025</strong></div>
+            <div class="links">
+              <a class="btn" href="https://arxiv.org" target="_blank" rel="noopener">ArXiv</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Project</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Slides</a>
+            </div>
+          </div>
+        </article>
 
-    <script>
-        const toggleButton = document.getElementById('toggle-theme');
-        const themeIcon = document.getElementById('theme-icon');
+        <!-- Pub 2 -->
+        <article class="card pub" aria-label="DEM SR ICPR 2024">
+          <img class="thumb" src="SiRan.png" alt="DEM SR thumbnail" width="110" height="80" loading="lazy" />
+          <div>
+            <h4>Sinkhorn Regularized Adversarial Network for Image‑Guided DEM Super‑Resolution using Frequency‑Selective Hybrid Graph Transformer</h4>
+            <div class="meta">Subhajit Paul, Ashutosh Gupta • <strong>ICPR 2024</strong></div>
+            <div class="links">
+              <a class="btn" href="https://arxiv.org" target="_blank" rel="noopener">ArXiv</a>
+              <a class="btn" href="https://link.springer.com" target="_blank" rel="noopener">Paper</a>
+            </div>
+          </div>
+        </article>
 
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-            document.querySelector('nav').classList.toggle('dark-mode');
-            document.querySelectorAll('.section').forEach(section => section.classList.toggle('dark-mode'));
-            document.querySelectorAll('a').forEach(link => link.classList.toggle('dark-mode'));
+        <!-- Pub 3 -->
+        <article class="card pub" aria-label="C-LiSA TGRS">
+          <img class="thumb" src="clisa.png" alt="Cloud segmentation thumbnail" width="110" height="80" loading="lazy" />
+          <div>
+            <h4>C‑LiSA: Hierarchical Hybrid Transformer with Orthogonal Cross Attention for Satellite Cloud Segmentation</h4>
+            <div class="meta">Subhajit Paul, Ashutosh Gupta, S. Manthira Moorthi, Debajyoti Dhar • <strong>IEEE TGRS</strong></div>
+            <div class="links">
+              <a class="btn" href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">Journal</a>
+              <a class="btn" href="https://arxiv.org" target="_blank" rel="noopener">ArXiv</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="muted" style="margin-top:8px">Tip: Duplicate the <code>&lt;article class=&quot;card pub&quot;&gt;…&lt;/article&gt;</code> block to add more entries. Thumbnails live at the repo root (e.g., <code>f2former.png</code>, <code>ml4rs.png</code>, <code>igarss.png</code>, <code>rasse.png</code>, <code>multimedia.png</code>).</p>
+    </section>
 
-            // Toggle between moon and sun icons
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        });
-    </script>
-    
+    <!-- Experience -->
+    <section id="experience">
+      <h3>Experience</h3>
+      <ol class="timeline">
+        <li class="item">
+          <div><strong>Scientist/Engineer‑SD</strong> — Space Applications Centre (ISRO) • <span class="muted">Jan 2021 – Present</span></div>
+          <ul>
+            <li>Operationalised deep band reconstruction & restoration pipelines; striping correction; semantic mapping for high‑res satellite imagery (deployed at NRSC).</li>
+            <li>Mission work: OM for HRSAT; algorithms for Chandrayaan‑3 landing imagery.</li>
+            <li>Research: DEM SR (Sinkhorn + Graph Transformer), Fractional‑Fourier deblurring transformer; Lipschitz‑validated segmentation.</li>
+          </ul>
+        </li>
+        <li class="item">
+          <div><strong>PhD (Computer Science)</strong> — Indian Institute of Science (IISc) • <span class="muted">2024 –</span></div>
+          <ul>
+            <li>Research focus: geometric representation of generative models; multimodal image handling.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container">
+      <div>© <span id="y"></span> Subhajit Paul</div>
+      <div class="muted">Contact: <a href="mailto:subhajitpaul@iisc.ac.in">subhajitpaul@iisc.ac.in</a> • <a href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a> • <a href="https://in.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
